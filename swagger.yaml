@@ -1,0 +1,238 @@
+openapi: 3.0.0
+info:
+  title: stutern-mongodb-assignment
+  contact: {}
+  version: '1.0'
+servers:
+- url: localhost:3000/api/v1
+  variables: {}
+- url: http://localhost:3000/api/v1/auth
+  variables: {}
+paths:
+  /post/{id}:
+    delete:
+      tags:
+      - post
+      summary: delete post
+      operationId: deletepost
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security:
+      - bearer: []
+      servers:
+      - url: localhost:3000/api/v1
+        variables: {}
+    patch:
+      tags:
+      - post
+      summary: change post
+      operationId: changepost
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/changepostrequest'
+            example:
+              title: okpara
+              body: ' okpara post'
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security:
+      - bearer: []
+      servers:
+      - url: localhost:3000/api/v1
+        variables: {}
+    get:
+      tags:
+      - post
+      summary: get post
+      operationId: getpost
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security:
+      - bearer: []
+      servers:
+      - url: localhost:3000/api/v1
+        variables: {}
+  /post:
+    get:
+      tags:
+      - post
+      summary: get all posts
+      operationId: getallposts
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security:
+      - bearer: []
+      servers:
+      - url: localhost:3000/api/v1
+        variables: {}
+    post:
+      tags:
+      - post
+      summary: create post
+      operationId: createpost
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/createpostrequest'
+            example:
+              title: eze Njoku
+              body: ' eze post'
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security:
+      - bearer: []
+      servers:
+      - url: localhost:3000/api/v1
+        variables: {}
+  /auth/register:
+    post:
+      tags:
+      - Auth
+      summary: register user
+      operationId: registeruser
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/registeruserrequest'
+            example:
+              name: adaNjok
+              email: adankok@gmail.com
+              password: adanjok
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security: []
+      servers:
+      - url: localhost:3000/api/v1
+        variables: {}
+  /login:
+    post:
+      tags:
+      - Auth
+      summary: login user
+      operationId: loginuser
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/loginuserrequest'
+            example:
+              email: oforNjoku@gmail.com
+              password: njokuofor
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security: []
+      servers:
+      - url: http://localhost:3000/api/v1/auth
+        variables: {}
+components:
+  schemas:
+    changepostrequest:
+      title: changepostrequest
+      required:
+      - title
+      - body
+      type: object
+      properties:
+        title:
+          type: string
+        body:
+          type: string
+      example:
+        title: okpara
+        body: ' okpara post'
+    createpostrequest:
+      title: createpostrequest
+      required:
+      - title
+      - body
+      type: object
+      properties:
+        title:
+          type: string
+        body:
+          type: string
+      example:
+        title: eze Njoku
+        body: ' eze post'
+    registeruserrequest:
+      title: registeruserrequest
+      required:
+      - name
+      - email
+      - password
+      type: object
+      properties:
+        name:
+          type: string
+        email:
+          type: string
+        password:
+          type: string
+      example:
+        name: adaNjok
+        email: adankok@gmail.com
+        password: adanjok
+    loginuserrequest:
+      title: loginuserrequest
+      required:
+      - email
+      - password
+      type: object
+      properties:
+        email:
+          type: string
+        password:
+          type: string
+      example:
+        email: oforNjoku@gmail.com
+        password: njokuofor
+  securitySchemes:
+    bearer:
+      type: http
+      scheme: bearer
+security: []
+tags:
+- name: post
+  description: ''
+- name: Auth
+  description: ''
