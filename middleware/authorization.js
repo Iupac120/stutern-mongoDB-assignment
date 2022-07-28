@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken')
 const {StatusCodes} = require('http-status-codes')
 
-
+// authorization of a user
 const authorization = async(req,res,next)=>{
     const auth = req.headers.authorization
     if(!auth ||!auth.startsWith('Bearer')){
