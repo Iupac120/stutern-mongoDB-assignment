@@ -22,7 +22,7 @@ const createJob = async(req,res)=>{
     res.status(StatusCodes.CREATED).json(post)
 
 }
-
+//creating a new branch for assignment review
 const updateJob = async(req,res)=>{
     const {params:{id},body:{title,body}, authUser:{userid}} = req
     if (title ==='' || body === ''){
