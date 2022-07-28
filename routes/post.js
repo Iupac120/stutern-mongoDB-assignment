@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const postController = require('../controller/post')
-
+//routes to post
 router.get('/',postController.getAllJobs)
 router.post('/',postController.createJob)
 

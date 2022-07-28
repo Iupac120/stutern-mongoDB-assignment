@@ -1,7 +1,7 @@
 const postDB = require('../models/post')
 const bcrypt = require('bcrypt')
 const {StatusCodes} = require('http-status-codes')
-
+// different routes to post
 const getAllJobs = async(req,res)=>{
     const posts = await postDB.find({createdBy:req.authUser.userid}).sort('createdAt')
     res.status(StatusCodes.OK).json({posts,count:posts.length})

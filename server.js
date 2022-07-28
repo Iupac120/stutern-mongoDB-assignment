@@ -7,7 +7,7 @@ const swaggerDoc = yaml.load('./swagger.yaml')
 const PORT = process.env.PORT || 3000
 app.use(express.json())
 app.use(cors())
-
+//endpoints working perfectly
 
 
 require('dotenv').config()

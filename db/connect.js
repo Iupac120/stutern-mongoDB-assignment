@@ -1,3 +1,4 @@
+//MongoDb was the cause of failure in the heroku;
 
 const mongoose = require('mongoose')
 
@@ -8,5 +9,6 @@ const connectDB = (url) => {
     useUnifiedTopology: true,
   })
 }
+
 
 module.exports = connectDB
